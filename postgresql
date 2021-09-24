@@ -16,8 +16,8 @@ spec:
         - name: postgresqlUsername
           value: 'postgres'
         - name: existingSecret
-          value: 'postgresql-default-external'
-        - name: existingSecret
+          value: 'data-lake'
+        - name: persistence.size
           value: '1Gi'  
   project: operation
   syncPolicy:
