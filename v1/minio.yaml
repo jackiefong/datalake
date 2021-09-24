@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: 8.9.6
+    targetRevision: 8.1.4
     chart: minio
     helm:
       parameters:
