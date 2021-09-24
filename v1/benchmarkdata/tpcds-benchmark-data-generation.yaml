@@ -2,7 +2,6 @@ apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
   name: tpcds-benchmark-data-generation-1g
-  namespace: data-lake
 spec:
   type: Scala
   image: seedjeffwan/spark:v2.4.5-examples
@@ -29,54 +28,36 @@ spec:
     - "true"
   sparkConf:
     "spark.speculation": "false"
-    "spark.network.timeout": "2400"
-    # S3 Credential
-    "spark.hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.InstanceProfileCredentialsProvider"
+    "spark.network.timeout": "2400"    
     # S3 Configs
     "spark.hadoop.fs.s3a.endpoint": "http://minio:9000"
     "spark.hadoop.fs.s3a.connection.timeout": "1200000"
+    "spark.hadoop.fs.s3a.connection.ssl.enabled": "false"
     "spark.hadoop.fs.s3a.path.style.access": "true"
     "spark.hadoop.fs.s3a.connection.maximum": "200"
     "spark.hadoop.fs.s3a.fast.upload": "true"
     "spark.hadoop.fs.s3a.readahead.range": "256K"
     "spark.hadoop.fs.s3a.input.fadvise": "random"
+    "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem"
     # S3A Committer
     "spark.hadoop.mapreduce.outputcommitter.factory.scheme.s3a": "org.apache.hadoop.fs.s3a.commit.S3ACommitterFactory"
     # "spark.sql.sources.commitProtocolClass": "org.apache.spark.internal.io.cloud.PathOutputCommitProtocol"
     # "spark.sql.parquet.output.committer.class": "org.apache.hadoop.mapreduce.lib.output.BindingPathOutputCommitter"
     "spark.hadoop.fs.s3a.committer.name": "directory"
     "spark.hadoop.fs.s3a.committer.staging.conflict-mode": "append"
+    "spark.kubernetes.driver.secretKeyRef.AWS_ACCESS_KEY_ID" : "data-lake:s3-access"
+    "spark.kubernetes.driver.secretKeyRef.AWS_SECRET_ACCESS_KEY" : "data-lake:s3-secret"
+    "spark.kubernetes.executor.secretKeyRef.AWS_ACCESS_KEY_ID" : "data-lake:s3-access"
+    "spark.kubernetes.executor.secretKeyRef.AWS_SECRET_ACCESS_KEY" : "data-lake:s3-secret"
   driver:
     cores: 1
     coreLimit: "1"
     memory: "1000m"
     serviceAccount: spark-operator
-    env:
-      - name: AWS_ACCESS_KEY_ID
-        valueFrom:
-          secretKeyRef:
-            name: data-lake
-            key: s3-access
-      - name: AWS_SECRET_ACCESS_KEY
-        valueFrom:
-          secretKeyRef:
-            name: data-lake
-            key: s3-secret
   executor:
     instances: 1
     cores: 1
     memory: "2000m"
     memoryOverhead: 2g
-    env:
-      - name: AWS_ACCESS_KEY_ID
-        valueFrom:
-          secretKeyRef:
-            name: data-lake
-            key: s3-access
-      - name: AWS_SECRET_ACCESS_KEY
-        valueFrom:
-          secretKeyRef:
-            name: data-lake
-            key: s3-secret    
   restartPolicy:
     type: Never
