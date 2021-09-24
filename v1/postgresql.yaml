@@ -25,8 +25,8 @@ spec:
                 echo \"Creating database for datalake"\n
                 echo \"CREATE DATABASE superset;\" | postgresql_execute\n
                 echo \"Creating database\"\n
-                echo \"CREATE DATABASE superset;\" | postgresql_execute "" "$POSTGRES_USER" "$POSTGRES_PASSWORD"\n
-                echo \"CREATE DATABASE metastore_db;\" | postgresql_execute "" "$POSTGRES_USER" "$POSTGRES_PASSWORD"
+                echo \"CREATE DATABASE superset;\" | postgresql_execute \"\" \"$POSTGRES_USER\" \"$POSTGRES_PASSWORD\"\n
+                echo \"CREATE DATABASE metastore_db;\" | postgresql_execute \"\" \"$POSTGRES_USER\" \"$POSTGRES_PASSWORD\""
         - name: initdbScriptsSecret
           value: data-lake
         - name: initdbUser
