@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://jackiefong.github.io/helm-charts'
-    targetRevision: 8.1.4
+    targetRevision: 1.0.0
     chart: spark-thrift-server
     helm:
       parameters:
