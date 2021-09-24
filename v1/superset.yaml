@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql
+  namespace: argocd
+spec:
+  destination:
+    namespace: data-lake
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://apache.github.io/superset'
+    targetRevision: 0.1.1
+    chart: superset
+    helm:
+      parameters:
+        - name: postgresql.enabled
+          value: false
+        - name: redis.enabled
+          value: true
+        - supersetNode.connections.db_pass
+          value: password
+  project: operation
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
