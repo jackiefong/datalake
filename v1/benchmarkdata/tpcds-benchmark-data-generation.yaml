@@ -17,9 +17,9 @@ spec:
   # Data Format
     - "parquet"
   # Scale factor (in GB)
-    - ".1"
+    - "1"
   # Generate data num partitions
-    - "100"
+    - "10"
   # Create the partitioned fact tables
     - "false"
   # Shuffle to get partitions coalesced into single files.
