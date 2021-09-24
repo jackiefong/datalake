@@ -22,11 +22,12 @@ spec:
         - name: initdbScripts.init\.sh
           value: |
             #!/bin/bash
-            initDatabase() {
+            
               # Create readonly user and grant privileges              
               echo "Creating database"    
               echo "CREATE DATABASE superset;" | postgresql_execute 
-              echo "CREATE DATABASE metastore_db;" | postgresql_execute 
+              echo "CREATE DATABASE metastore_db;" | postgresql_execute
+              
         - name: initdbScriptsSecret
           value: data-lake
         - name: initdbUser
