@@ -17,8 +17,15 @@ spec:
           value: "false"
         - name: redis.enabled
           value: "true"
+        - name: supersetNode.connections.db_host
+          value: "postgresql"
         - name: supersetNode.connections.db_pass
           value: "password"
+        - name: supersetNode.connections.db_user
+          value: "postgres"
+        - name: supersetNode.connections.db_name
+          value: "superset"          
+          
   project: operation
   syncPolicy:
     syncOptions:
