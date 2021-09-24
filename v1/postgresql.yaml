@@ -20,7 +20,8 @@ spec:
         - name: persistence.size
           value: '1Gi'
         - name: initdbScripts
-          value: init.sh: |
+          value: 
+            init.sh: |
               #!/bin/bash\ninitDatabase() {
               echo "Creating database for datalake"
               echo "CREATE DATABASE superset;" | postgresql_execute
