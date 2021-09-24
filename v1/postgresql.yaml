@@ -26,7 +26,7 @@ spec:
               # Create readonly user and grant privileges              
               echo "Creating database"
               echo "CREATE DATABASE metastore_db;" | postgresql_execute "" "\$\POSTGRES_USER" "\$\POSTGRES_PASSWORD"
-              
+              echo "CREATE DATABASE superset;" | postgresql_execute "" "\$\POSTGRES_USER" "\$\POSTGRES_PASSWORD"
         - name: initdbScriptsSecret
           value: data-lake
         - name: initdbUser
