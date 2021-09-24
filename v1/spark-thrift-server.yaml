@@ -14,11 +14,11 @@ spec:
     helm:
       parameters:
         - name: driver.imagePullSecrets[0].name
-          value: jackiesecret
+          value: jackieregistry
         - name: customconfig
           value: |
             - --conf
-            - spark.kubernetes.container.image.pullSecrets=jackiesecret
+            - spark.kubernetes.container.image.pullSecrets=jackieregistry
   project: operation
   syncPolicy:
     syncOptions:
