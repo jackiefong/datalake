@@ -18,7 +18,7 @@ spec:
         - name: secretKey.password
           value: 'aaaaaaaaaa' 
         - name: defaultBuckets
-          value: data-lake,data-lake-logs
+          value: data-lake-bucket,data-lake-log-bucket
         - name: persistence.size
           value: '8Gi'
   project: operation
