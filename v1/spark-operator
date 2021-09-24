@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spark-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: data-lake
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://googlecloudplatform.github.io/spark-on-k8s-operator'
+    targetRevision: 1.1.6
+    chart: spark-operator
+  project: operation
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
