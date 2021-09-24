@@ -19,7 +19,7 @@ spec:
           value: 'data-lake'
         - name: persistence.size
           value: '1Gi'
-        - name: initdbScripts."init\.sh"
+        - name: initdbScripts.init\.sh
           value: |
             #!/bin/bash
             initDatabase() {
