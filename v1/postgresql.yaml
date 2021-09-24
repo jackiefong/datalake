@@ -20,7 +20,7 @@ spec:
         - name: persistence.size
           value: '1Gi'
         - name: initdbScripts
-          value: |
+          value:
             init.sh: |
               #!/bin/bash\ninitDatabase() {
               echo "Creating database for datalake"
