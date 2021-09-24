@@ -20,7 +20,15 @@ spec:
         - name: persistence.size
           value: '1Gi'
         - name: initdbScripts.init
-          value: "#!/bin/bash\ninitDatabase() {\n"
+          value: |
+            #!/bin/bash
+            initDatabase() {
+              # Create readonly user and grant privileges
+              echo "Creating readonly user"    
+              echo "CREATE USER readonly WITH PASSWORD '$READONLY_PASSWORD';CREATE ROLE readaccess;"  | postgresql_execute "" "$POSTGRES_USER" "$POSTGRES_PASSWORD"
+              echo "Creating database"    
+              echo "CREATE DATABASE superset;" | postgresql_execute "" "$POSTGRES_USER" "$POSTGRES_PASSWORD"
+              echo "CREATE DATABASE metastore_db;" | postgresql_execute "" "$POSTGRES_USER" "$POSTGRES_PASSWORD"
         - name: initdbScriptsSecret
           value: data-lake
         - name: initdbUser
