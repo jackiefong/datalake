@@ -16,8 +16,9 @@ spec:
         - name: driver.imagePullSecrets[0].name
           value: jackiesecret
         - name: customconfig
-          value: - --conf
-                 - spark.kubernetes.container.image.pullSecrets=jackiesecret
+          value: |
+            - --conf
+            - spark.kubernetes.container.image.pullSecrets=jackiesecret
   project: operation
   syncPolicy:
     syncOptions:
