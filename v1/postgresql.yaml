@@ -21,10 +21,7 @@ spec:
           value: '1Gi'
         - name: initdbScripts
           value: "init.sh: |\n
-                #!/bin/bash\ninitDatabase() {\n
-                "#!/bin/bash\ninitDatabase() {\n  echo \"Creating database for datalake\"    \n  echo \"CREATE DATABASE superset;\" | postgresql_execute
-                \"\" \"$POSTGRES_USER\" \"$POSTGRES_PASSWORD\"\n  echo \"CREATE DATABASE metastore_db;\" | postgresql_execute \"\" \"$POSTGRES_USER\" \"$POSTGRES_PASSWORD\"\n}
-            \      \ninitDatabase\n"
+                #!/bin/bash\ninitDatabase() {\n"
         - name: initdbScriptsSecret
           value: data-lake
         - name: initdbUser
