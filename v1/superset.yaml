@@ -17,7 +17,7 @@ spec:
           value: false
         - name: redis.enabled
           value: true
-        - supersetNode.connections.db_pass
+        - name: supersetNode.connections.db_pass
           value: password
   project: operation
   syncPolicy:
