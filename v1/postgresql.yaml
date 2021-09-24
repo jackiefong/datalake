@@ -19,8 +19,9 @@ spec:
           value: 'data-lake'
         - name: persistence.size
           value: '1Gi'
-        - name: initdbScripts."[init.sh]"
+        - name: initdbScripts
           value: |
+            init.sh: |
               #!/bin/bash\ninitDatabase() {
               echo "Creating database for datalake"
               echo "CREATE DATABASE superset;" | postgresql_execute
