@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spark-thrift-server
+  namespace: argocd
+spec:
+  destination:
+    namespace: data-lake
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://jackiefong.github.io/helm-charts'
+    targetRevision: 8.1.4
+    chart: spark-thrift-server
+    helm:
+      parameters:
+        - name: driver.imagePullSecrets[0].name
+          value: jackiesecret
+  project: operation
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
