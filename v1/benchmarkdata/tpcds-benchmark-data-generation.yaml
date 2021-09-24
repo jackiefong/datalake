@@ -2,6 +2,7 @@ apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
   name: tpcds-benchmark-data-generation
+  namespace: data-lake
 spec:
   type: Scala
   image: seedjeffwan/spark:v2.4.5-examples
