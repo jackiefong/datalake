@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: argocd
+spec:
+  destination:
+    namespace: data-lake
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 8.9.6
+    chart: minio
+    helm:
+      parameters:
+        - name: accessKey.password
+          value: 'aaaaaaaaaa'
+        - name: secretKey.password
+          value: 'aaaaaaaaaa' 
+        - name: persistence.size
+          value: '8Gi'
+  project: operation
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
