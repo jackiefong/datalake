@@ -33,7 +33,7 @@ spec:
         - name: supersetNode.connections.db_host
           value: "postgresql"
         - name: supersetNode.connections.db_pass
-          value: echo `env | sed -n 's/s3-access=\(.*\)/\1/p'`
+          value: "password"
         - name: supersetNode.connections.db_user
           value: "postgres"
         - name: supersetNode.connections.db_name
