@@ -26,7 +26,6 @@ spec:
             cssfile=$(ls /app/superset/static/assets/theme*.css | head -n1) && echo '.customlogo {width:148px;height:51px;background:url(/static/assets/images/login.png);background-size:148px 51px; }'  >> \$\cssfile
         - name:  envFromSecrets
           value: data-lake
-          value: postgresql-password   
         - name: postgresql.enabled
           value: "false"
         - name: redis.enabled
