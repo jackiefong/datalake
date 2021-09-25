@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://apache.github.io/superset'
-    targetRevision: 0.1.1
+    targetRevision: 0.3.8
     chart: superset
     helm:
       parameters:
