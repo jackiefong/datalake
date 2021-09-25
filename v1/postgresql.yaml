@@ -21,9 +21,7 @@ spec:
           value: '1Gi'
         - name: initdbScripts.init\.sh
           value: |
-            #!/bin/bash
-            
-              # Create readonly user and grant privileges              
+            #!/bin/bash              
               echo "Creating database"
               echo "CREATE DATABASE metastore_db;" | postgresql_execute "" "\$\POSTGRES_USER" "\$\POSTGRES_PASSWORD"
               echo "CREATE DATABASE superset;" | postgresql_execute "" "\$\POSTGRES_USER" "\$\POSTGRES_PASSWORD"
