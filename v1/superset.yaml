@@ -24,7 +24,7 @@ spec:
             apt-get install -y libsasl2-modules vim netcat
             # Change SuperSET CSS for the custom oauth icon
             cssfile=$(ls /app/superset/static/assets/theme*.css | head -n1) && echo '.customlogo {width:148px;height:51px;background:url(/static/assets/images/login.png);background-size:148px 51px; }'  >> \$\cssfile
-        - name:  extraEnvFromSecret
+        - name:  extraEnv
           value: |
             - name: STS_PASS
               valueFrom:
