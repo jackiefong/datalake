@@ -18,9 +18,9 @@ spec:
         - name: mode
           value: 'distributed'
         - name: statefulset.replicaCount
-          value: '2'
+          value: '1'
         - name: statefulset.drivesPerNode
-          value: '2'
+          value: '1'
         - name: accessKey.password
           value: 'aaaaaaaaaa'
         - name: secretKey.password
