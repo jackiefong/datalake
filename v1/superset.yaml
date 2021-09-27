@@ -39,9 +39,8 @@ spec:
         - name: supersetNode.connections.db_user
           value: "postgres"
         - name: supersetNode.connections.db_name
-          value: "superset"          
-          
-  project: operation
+          value: "superset"
+  project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
