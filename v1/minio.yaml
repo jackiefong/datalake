@@ -23,7 +23,7 @@ spec:
           value: data-lake-bucket,data-lake-log-bucket
         - name: persistence.size
           value: '8Gi'
-  project: operation
+  project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
