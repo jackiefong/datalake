@@ -15,6 +15,10 @@ spec:
     chart: minio
     helm:
       parameters:
+        - name: mode
+          value: 'distributed'
+        - name: statefulset.replicaCount
+          value: '1'
         - name: accessKey.password
           value: 'aaaaaaaaaa'
         - name: secretKey.password
