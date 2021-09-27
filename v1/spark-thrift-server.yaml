@@ -21,8 +21,6 @@ spec:
             - spark.kubernetes.container.image.pullSecrets=jackieregistry
   project: operation
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
