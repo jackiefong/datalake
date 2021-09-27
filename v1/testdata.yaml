@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: data-lake
     server: 'https://kubernetes.default.svc'
-  project: operation
+  project: default
   source:
     path: v1/benchmarkdata
     repoURL: 'https://github.com/jackiefong/datalake.git'
