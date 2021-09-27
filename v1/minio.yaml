@@ -3,9 +3,10 @@ kind: Application
 metadata:
   name: minio
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io    
 spec:
   destination:
-    namespace: data-lake
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
