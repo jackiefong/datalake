@@ -17,7 +17,7 @@ spec:
           value: jackieregistry
         - name: driver.image.tag
           value: "3.1.2.2021.09.27.1821"
-       - name: metastore.image.tag
+        - name: metastore.image.tag
           value: "3.0.0.2021.09.27.1925"
         - name: customconfig
           value: |
