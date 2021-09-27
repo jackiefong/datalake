@@ -31,7 +31,7 @@ spec:
           value: data-lake
         - name: initdbUser
           value: postgres
-  project: operation
+  project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
