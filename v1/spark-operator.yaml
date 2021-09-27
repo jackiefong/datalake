@@ -13,7 +13,7 @@ spec:
     repoURL: 'https://googlecloudplatform.github.io/spark-on-k8s-operator'
     targetRevision: 1.1.6
     chart: spark-operator
-  project: operation
+  project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
