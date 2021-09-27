@@ -20,7 +20,7 @@ spec:
         - name: statefulset.replicaCount
           value: '1'
         - name: statefulset.drivesPerNode
-          value: '1'
+          value: '2'
         - name: accessKey.password
           value: 'aaaaaaaaaa'
         - name: secretKey.password
