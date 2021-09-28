@@ -10,7 +10,7 @@ spec:
     namespace: data-lake
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://jackiefong.github.io/helm-charts'
+    repoURL: 'https://raw.githubusercontent.com/jackiefong/helm-charts/gh-pages'
     targetRevision: 1.0.0
     chart: spark-thrift-server
     helm:
